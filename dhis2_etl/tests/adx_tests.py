@@ -20,7 +20,7 @@ from dhis2_etl.utils import build_dhis2_id
 from django.test import TestCase
 from django.db.models import Q, Count
 from insuree.models import Gender, Insuree
-from insuree.test_helpers import create_test_insuree
+from insuree.test_helpers import create_test_insuree, create_test_gender
 from location.models import HealthFacility, Location
 from location.test_helpers import create_test_health_facility
 
@@ -170,6 +170,8 @@ class ADXTests(TestCase):
     @classmethod
     def _create_test_organization_unit(cls):
         dateTest = datetime.datetime.now()
+        # Ensure genders exist before creating insurees
+        create_test_gender()
         # First valid district
         district = Location.objects.filter(type="D", validity_to__isnull=True).first()
         cls._TEST_HF = create_test_health_facility("HFT", district.id)
