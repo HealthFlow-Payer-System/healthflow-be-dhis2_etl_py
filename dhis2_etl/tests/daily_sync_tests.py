@@ -7,6 +7,7 @@ from django.test import TestCase
 from insuree.models import Education, FamilyType, Gender, Insuree, Profession
 from insuree.test_helpers import create_test_gender, create_test_insuree
 from medical.models import Diagnosis, Item, Service
+from medical.test_helpers import create_test_diagnosis, create_test_service, create_test_item
 from policy.test_helpers import create_test_policy2
 from product.test_helpers import create_test_product
 
@@ -28,6 +29,9 @@ class DailySyncTests(TestCase):
         super(DailySyncTests, self).setUp()
         # Ensure genders exist before any test operations
         create_test_gender()
+        create_test_diagnosis()
+        create_test_item(item_type='D')
+        create_test_service('D')
         self.timeframe = (
             datetime.datetime(2018, 12, 10),
             datetime.datetime(2018, 12, 11),
