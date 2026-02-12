@@ -62,7 +62,7 @@ def get_claim_period_filter(qs, period, prefix=""):
         qs.annotate(ref_date=Coalesce(f"{prefix}date_to", f"{prefix}date_from"))
         .filter(ref_date__gte=period.from_date)
         .filter(ref_date__lt=period.to_date)
-        .filter(*filter_validity())
+        .filter(*Claim.filter_validity())
     )
 
 
