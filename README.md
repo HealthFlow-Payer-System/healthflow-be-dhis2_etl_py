@@ -1,4 +1,9 @@
-# openimis-be-dhis2_etl_py
+# HealthFlow-be-dhis2_etl_py
+
+
+> **HealthFlow Payer System — Egypt context**
+>
+> This repository is maintained under [HealthFlow Payer System](https://github.com/HealthFlow-Payer-System), an Egypt-focused health-insurance platform built on openIMIS foundations. Egypt-specific localization is applied at the assembly and module boundaries; consult the repository-specific configuration and deployment documentation for the capabilities enabled here.
 
 openIMIS Module to push data into DHIS2
 
@@ -117,6 +122,3 @@ or can be done step by step are described below
     `python manage.py pushadx 2023-02-01 pushMetadata`
 
     this code will push data for Jan 23
-
-   
-
